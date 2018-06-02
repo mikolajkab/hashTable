@@ -1,7 +1,7 @@
 using Base.Test
 
-include("C:\\Home\\OKNO\\TIWO\\hash app\\hashSrc.jl")
+include("C:\\Home\\OKNO\\TIWO\\hash\\hashSrc.jl")
 
-@testset "Hash app tests" begin
-    @test createHashTable(100)=true 
+@testset "Hash tests" begin
+    @test hash(100,10)=mod(100,10)
 end
