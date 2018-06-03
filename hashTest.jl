@@ -27,6 +27,14 @@ A = Array{Int64,1}(10)
 B = Array{Int64,1}(10)  
 fill!(B , 0)
 @test createHashArray(A, maxSize) == B  
-
 end
 
+@testset "placeInBucket" begin
+numOfBuckets = 100
+bucketNum = 0
+numInBucket = 0
+returnVal = (bucketNum, numInBucket)
+hashArray = Vector{Vector{Int64}, numOfBuckets}
+fill!(hashArray, 0)
+@test placeInBucket(hashArray, 0) == returnVal
+end
