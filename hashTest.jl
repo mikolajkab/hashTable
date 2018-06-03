@@ -9,10 +9,24 @@ include("C:\\Home\\OKNO\\TIWO\\hash\\hashSrc.jl")
 end
 
 @testset "createHashArray" begin
-@test createHashArray(Array(100)) = Array(100)    
-@test createHashArray(Array(1000)) = Array(1000)    
-@test createHashArray(Array(1001)) = Array(1000)    
-@test createHashArray(Array(9999)) = Array(1000)    
+maxSize = 100
+A = Array{Int64,2}(4,9)
+fill!(A , 0)
+@test createHashArray(A, maxSize) == false   
+
+A = Array{Int64,2}(10,10)
+fill!(A , 0)
+@test createHashArray(A, maxSize) == false 
+
+A = Array{Int64,1}(1001)
+B = Array{Int64,1}(maxSize)
+fill!(B , 0)
+@test createHashArray(A, maxSize) == B    
+
+A = Array{Int64,1}(10)
+B = Array{Int64,1}(10)  
+fill!(B , 0)
+@test createHashArray(A, maxSize) == B  
 
 end
 
