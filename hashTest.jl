@@ -11,30 +11,49 @@ end
 @testset "createHashArray" begin
 maxSize = 100
 A = Array{Int64,2}(4,9)
-fill!(A , 0)
 @test createHashArray(A, maxSize) == false   
 
 A = Array{Int64,2}(10,10)
-fill!(A , 0)
 @test createHashArray(A, maxSize) == false 
 
 A = Array{Int64,1}(1001)
-B = Array{Int64,1}(maxSize)
-fill!(B , 0)
-@test createHashArray(A, maxSize) == B    
+hashArray = Array{Int}[]
+for i in 1:maxSize
+    push!(hashArray,[])
+ end
+@test createHashArray(A, maxSize) == hashArray    
 
 A = Array{Int64,1}(10)
-B = Array{Int64,1}(10)  
-fill!(B , 0)
-@test createHashArray(A, maxSize) == B  
+hashArray = Array{Int}[]
+for i in 1:10
+    push!(hashArray,[])
+ end
+@test createHashArray(A, maxSize) == hashArray  
 end
 
 @testset "placeInBucket" begin
+# input values
 numOfBuckets = 100
-bucketNum = 0
-numInBucket = 0
-returnVal = (bucketNum, numInBucket)
-hashArray = Vector{Vector{Int64}, numOfBuckets}
-fill!(hashArray, 0)
-@test placeInBucket(hashArray, 0) == returnVal
+hashArray = Array{Int}[]
+for i in 1:numOfBuckets
+   push!(hashArray,[])
+end
+
+value = 10
+hash = 15
+value_hash = (value, hash,0)
+
+@test placeInBucket!(hashArray, value_hash) == false
+
+value = 10
+hash = 101
+value_hash = (value, hash)
+
+@test placeInBucket!(hashArray, value_hash) == false
+
+value = 10
+hash = 15
+value_hash = (value, hash)
+
+@test placeInBucket!(hashArray, value_hash) == 10
 end
