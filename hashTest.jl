@@ -71,4 +71,16 @@ inputArray = [1, 1, 1, 1, 1, 1, 1, 1]
 hashArray = [[], [1, 1, 1, 1, 1, 1, 1, 1], [], [], [], [], [], []]
 @test createHashArray(inputArray, maxSize) == hashArray
 
+maxSize = 2
+inputArray = [1, 2, 3, 4, 5, 6, 7, 8]
+hashArray = [[2, 4, 6, 8], [1, 3, 5, 7]]
+@test createHashArray(inputArray, maxSize) == hashArray
+end
+
+@testset "returnVector" begin
+
+hashArray = [[2, 4, 6, 8], [1, 3, 5, 7]]
+vector = [2, 4, 6, 8]
+@test returnVector(hashArray, 1) = vector
+
 end
