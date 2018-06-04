@@ -81,6 +81,12 @@ end
 
 hashArray = [[2, 4, 6, 8], [1, 3, 5, 7]]
 vector = [2, 4, 6, 8]
-@test returnVector(hashArray, 1) = vector
+@test returnVector(hashArray, 1) == vector
 
+vector = [1, 3, 5, 7]
+@test returnVector(hashArray, 2) == vector
+
+@test returnVector(hashArray, 4) == false
 end
+
+
