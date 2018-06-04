@@ -58,7 +58,6 @@ function returnVector(hashArray, index)
     if index > size(hashArray,1)
         return false
     end
-
     return hashArray[index]
 end
 
@@ -71,3 +70,8 @@ function isInVector(vector, value)
     return false
 end
 
+function isInHashTable(hashTable, value)
+    numBuckets = size(hashTable, 1)
+    hash = calclHash(value, numBuckets)
+    return isInVector(hashTable[hash+1], value)
+end
