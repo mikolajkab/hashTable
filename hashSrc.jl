@@ -62,4 +62,12 @@ function returnVector(hashArray, index)
     return hashArray[index]
 end
 
+function isInVector(vector, value)
+    for i in vector
+        if i==value
+            return true
+        end
+    end
+    return false
+end
 

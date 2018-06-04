@@ -92,11 +92,11 @@ end
 @testset "isInVector" begin
 
 vector = [2, 4, 6, 8]
-@test returnVector(vector, 6) == true
+@test isInVector(vector, 6) == true
 
 vector = [1, 3, 5, 7]
-@test returnVector(vector, 2) == false
+@test isInVector(vector, 2) == false
 
 vector = []
-@test returnVector(vector, 4) == false
+@test isInVector(vector, 4) == false
 end
