@@ -100,3 +100,11 @@ vector = [1, 3, 5, 7]
 vector = []
 @test isInVector(vector, 4) == false
 end
+
+
+@testset "isInHashTable" begin
+
+hashTable = [[2, 4, 6, 8], [1, 3, 5, 7]]
+@test isInHashTable(hashTable, 2) == true
+
+end
