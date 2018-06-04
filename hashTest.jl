@@ -54,3 +54,12 @@ hash = 15
 value_hash = (value, hash)
 @test placeInBucket!(hashArray, value_hash) == true
 end
+
+@testset "creteHashTable" begin
+
+sampleArray = [1, 1, 2, 2, 3, 3, 4, 4]
+hashArray = [[1,1], [2,2], [3,3], [4,4], [], [], [], []]
+@test placeInBucket!(sampleArray) == hashArray
+
+
+end
