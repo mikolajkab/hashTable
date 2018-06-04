@@ -35,6 +35,8 @@ if size(hashArray,1) < value_hash[2]
     return false
 end
 
-push!(hashArray[value_hash[2]], value_hash[1])
-return hashArray[value_hash[2]][size(hashArray[value_hash[2]]),1]
+value = value_hash[1]
+hash = value_hash[2]
+push!(hashArray[hash], value)
+return true
 end

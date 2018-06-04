@@ -42,18 +42,15 @@ end
 value = 10
 hash = 15
 value_hash = (value, hash,0)
-
 @test placeInBucket!(hashArray, value_hash) == false
 
 value = 10
 hash = 101
 value_hash = (value, hash)
-
 @test placeInBucket!(hashArray, value_hash) == false
 
 value = 10
 hash = 15
 value_hash = (value, hash)
-
-@test placeInBucket!(hashArray, value_hash) == 10
+@test placeInBucket!(hashArray, value_hash) == true
 end
