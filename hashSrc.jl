@@ -37,17 +37,17 @@ end
 
 value = value_hash[1]
 hash = value_hash[2]
-push!(hashArray[hash], value)
+push!(hashArray[hash+1], value)
 return true
 end
 
 function createHashArray(inputArray, maxSize)
 hashArray = createEmptyHashArray(inputArray, maxSize)
+
 numBuckets = size(hashArray, 1)
 for value in inputArray
     hash = calclHash(value, numBuckets)
     value_hash = (value, hash)
-    println(hashArray)
     placeInBucket!(hashArray, value_hash)
 end
 return hashArray
