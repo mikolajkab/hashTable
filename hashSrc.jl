@@ -2,7 +2,7 @@ function calclHash(value, numBuckets)
 return mod(value,numBuckets)
 end
 
-function createHashArray(inputArray, maxSize)
+function createEmptyHashArray(inputArray, maxSize)
 if ndims(inputArray) != 1
     return false
 end
@@ -39,4 +39,14 @@ value = value_hash[1]
 hash = value_hash[2]
 push!(hashArray[hash], value)
 return true
+end
+
+function createHashArray(inputArray)
+hashArray = createEmptyHashArray(inputArray)
+for value in inputArray
+    hash = calclHash(value)
+    value_hash = (1, 2)
+    placeInBucket!(hashArray, value_hash)
+end
+return hashArray
 end

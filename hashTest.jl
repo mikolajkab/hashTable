@@ -11,24 +11,24 @@ end
 @testset "createHashArray" begin
 maxSize = 100
 A = Array{Int64,2}(4,9)
-@test createHashArray(A, maxSize) == false   
+@test createEmptyHashArray(A, maxSize) == false   
 
 A = Array{Int64,2}(10,10)
-@test createHashArray(A, maxSize) == false 
+@test createEmptyHashArray(A, maxSize) == false 
 
 A = Array{Int64,1}(1001)
 hashArray = Array{Int}[]
 for i in 1:maxSize
     push!(hashArray,[])
  end
-@test createHashArray(A, maxSize) == hashArray    
+@test createEmptyHashArray(A, maxSize) == hashArray    
 
 A = Array{Int64,1}(10)
 hashArray = Array{Int}[]
 for i in 1:10
     push!(hashArray,[])
  end
-@test createHashArray(A, maxSize) == hashArray  
+@test createEmptyHashArray(A, maxSize) == hashArray  
 end
 
 @testset "placeInBucket" begin
@@ -57,9 +57,8 @@ end
 
 @testset "creteHashTable" begin
 
-sampleArray = [1, 1, 2, 2, 3, 3, 4, 4]
+inputArray = [1, 1, 2, 2, 3, 3, 4, 4]
 hashArray = [[1,1], [2,2], [3,3], [4,4], [], [], [], []]
-@test placeInBucket!(sampleArray) == hashArray
-
+@test placeInBucket!(inputArray) == hashArray
 
 end
