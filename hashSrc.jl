@@ -1,3 +1,8 @@
+function ps2(aaa)
+    println(20)
+end
+
+
 function calclHash(value, numBuckets)
     return mod(value,numBuckets)
 end
