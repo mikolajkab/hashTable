@@ -89,27 +89,26 @@ vector = [1, 3, 5, 7]
 @test returnVector(hashArray, 4) == false
 end
 
-@testset "isInVector" begin
+@testset "getIndexInVector" begin
 
 vector = [2, 4, 6, 8]
-@test isInVector(vector, 6) == true
+@test getIndexInVector(vector, 6) == 3
 
 vector = [1, 3, 5, 7]
-@test isInVector(vector, 2) == false
+@test getIndexInVector(vector, 2) == 0
 
 vector = []
-@test isInVector(vector, 4) == false
+@test getIndexInVector(vector, 4) == 0
 end
 
-
-@testset "isInHashTable" begin
+@testset "getValueFromHashTable" begin
 
 hashTable = [[2, 4, 6, 8], [1, 3, 5, 7]]
-@test isInHashTable(hashTable, 2) == true
-@test isInHashTable(hashTable, 6) == true
-@test isInHashTable(hashTable, 7) == true
-@test isInHashTable(hashTable, 1) == true
-@test isInHashTable(hashTable, 9) == false
-@test isInHashTable(hashTable, 0) == false
+@test getValueFromHashTable(hashTable, 2) == (1,1)
+@test getValueFromHashTable(hashTable, 6) == (1,3)
+@test getValueFromHashTable(hashTable, 7) == (2,4)
+@test getValueFromHashTable(hashTable, 1) == (2,1)
+@test getValueFromHashTable(hashTable, 9) == false
+@test getValueFromHashTable(hashTable, 0) == false
 
 end

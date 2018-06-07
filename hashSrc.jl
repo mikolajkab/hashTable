@@ -61,17 +61,26 @@ function returnVector(hashArray, index)
     return hashArray[index]
 end
 
-function isInVector(vector, value)
+function getIndexInVector(vector, value)
+    index = 0
     for i in vector
+        index= index+1
         if i==value
-            return true
+            return index
         end
     end
-    return false
+    return 0
 end
 
-function isInHashTable(hashTable, value)
+function getValueFromHashTable(hashTable, value)
     numBuckets = size(hashTable, 1)
     hash = calclHash(value, numBuckets)
-    return isInVector(hashTable[hash+1], value)
+    index = getIndexInVector(hashTable[hash+1], value)
+    bucket_index = (hash+1, index)
+    
+    if index != 0
+        return bucket_index
+    else
+        return false
+    end
 end
